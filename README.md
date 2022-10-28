@@ -1,7 +1,5 @@
 # Model for the 2022 Senate Midterms
 
-Code behind the 2022 midterm model:
-
 Main contains the functions to determine the mean result, standard deviation, and democrat win chance for every state.
 
 Pollingaverage contains the polling averages created from FiveThirtyEight's polling database and pollster ratings. We augment this polling average by the actual results to find the polling error. For 2018, when there were no presidential elections, we used a heirarchy: if there was a senate election, we used that, otherwise a gubernatorial election, otherwise a mean of the error of house elections in that state.
