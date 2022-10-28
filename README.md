@@ -1,5 +1,4 @@
-# SenateModel2022
-Model for the 2022 Senate Midterms
+# Model for the 2022 Senate Midterms
 
 Code behind the 2022 midterm model:
 
