@@ -83,4 +83,5 @@ listofresults <- simulation %>%
 
 
 write_sheet(as.data.frame(listofresults), ss = as_sheets_id("https://docs.google.com/spreadsheets/d/1gXGn5vKjhYyhi2-38qiH4Ps5qMvppXg3JFSVYijZLFU/edit#gid=800772858"), sheet = 18)
+write_sheet(as.data.frame(c(mean(listofresults) + 1.96 * sd(listofresults), mean(listofresults) - 1.96 * sd(listofresults))), ss = as_sheets_id("https://docs.google.com/spreadsheets/d/1gXGn5vKjhYyhi2-38qiH4Ps5qMvppXg3JFSVYijZLFU/edit#gid=800772858"), sheet = 19)
 
