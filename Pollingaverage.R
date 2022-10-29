@@ -65,9 +65,8 @@ currentsenatepollsnooklahoma <- currentsenatepolls %>%
   mutate(weights = pollweights(as.numeric(Sys.Date() - as.Date(end_date, "%m/%d/%y")))) %>%
   #taking out Oklahoma special
   filter(!(candidate_name %in% c("Kendra Horn", "Markwayne Mullin", "Robert Murphy", "Ray Woods"))) %>%
-  filter(case_when(
-    state != "Utah" ~ !(pollster_rating_name == "Center Street PAC"),
-    TRUE ~ TRUE)) %>%
+  #only taking partisan polls if we have an error for them
+  filter(!(partisan %in% c("DEM", "REP") & !(pollster_rating_name %in% masterratings$Pollster))) %>%
   #getting the sum of percents for each party for every race
   group_by(poll_id, pollster_rating_name, state, population, party, end_date, weights) %>%
   summarize(pct = sum(pct)) %>%
